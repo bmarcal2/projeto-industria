@@ -1,0 +1,36 @@
+CREATE TYPE Cargo AS ENUM ('ADMINISTRADOR', 'ESTOQUE', 'FINANCEIRO');
+CREATE TYPE MovimentacaoType AS ENUM ('ENTRADA', 'SAIDA');
+
+CREATE TABLE USUARIO (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    cargo "cargo" NOT NULL
+);
+
+CREATE TABLE ESTOQUE (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    quantidade INTEGER NOT NULL DEFAULT 0,
+    preco DECIMAL NOT NULL
+);
+
+CREATE TABLE MOVIMENTACAO (
+    id SERIAL PRIMARY KEY,
+    tipo "MovimentacaoType" NOT NULL,
+    quantidade INTEGER NOT NULL,
+    valor DECIMAL NOT NULL,
+    criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    estoqueId INTEGER NOT NULL,
+    usuarioId INTEGER NOT NULL,
+);
+
+(
+CONSTRAINT FK_Movimentacao_Estoque FOREIGN KEY (estoqueId) 
+        REFERENCES Estoque (id) ON DELETE CASCADE ON UPDATE CASCADE,
+        
+    CONSTRAINT FK_Movimentacao_Usuario FOREIGN KEY (usuarioId) 
+        REFERENCES Usuario (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
