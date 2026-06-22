@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.0.0",
+    "sequelize-cli": "^6.6.5"
+  }
+}
