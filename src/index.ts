@@ -8,7 +8,6 @@ import produtoRotas from './routes/produtoRotas';
 const app = express();
 app.use(express.json());
 
-// Vincula as rotas
 app.use('/api', usuarioRotas);
 app.use('/api', produtoRotas);
 

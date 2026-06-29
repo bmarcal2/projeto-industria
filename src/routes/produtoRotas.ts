@@ -70,7 +70,7 @@ router.post('/movimentacoes', async (req: Request, res: Response) => {
         ]);
 
         if (quantidadeCalculada <= 10) {
-            console.log("\x1b[31m%s\x1b[0m", `⚠️ [ALERTA DE ESTOQUE] O item "${produto.nome}" está operando com nível crítico! Restam apenas ${quantidadeCalculada} unidades.`);
+            console.log("\x1b[31m%s\x1b[0m", `[ALERTA DE ESTOQUE] O item "${produto.nome}" está operando com nível crítico! Restam apenas ${quantidadeCalculada} unidades.`);
         }
 
         res.status(201).json({
