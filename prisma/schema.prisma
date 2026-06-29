@@ -1,0 +1,55 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Cargo {
+  ADMINISTRADOR
+  OPERADOR_DE_ESTOQUE
+  FINANCEIRO
+}
+
+enum MovimentacaoType {
+  ENTRADA
+  SAIDA
+}
+
+model Usuario {
+  id            Int            @id @default(autoincrement())
+  nome          String
+  email         String         @unique
+  senha         String
+  cargo         String         // No SQLite nativo, enums podem ser validados diretamente no código como String
+  movimentacoes Movimentacao[]
+
+  @@map("USUARIO")
+}
+
+model Estoque {
+  id            Int            @id @default(autoincrement())
+  nome          String
+  descricao     String?
+  quantidade    Int            @default(0)
+  preco         Float          // Mudado para Float para total compatibilidade local
+  movimentacoes Movimentacao[]
+
+  @@map("ESTOQUE")
+}
+
+model Movimentacao {
+  id         Int              @id @default(autoincrement())
+  tipo       String           // Tratado como String mapeada no código
+  quantidade Int
+  valor      Float
+  criado_em  DateTime         @default(now())
+  estoqueId  Int
+  usuarioId  Int
+
+  estoque    Estoque          @relation(fields: [estoqueId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  usuario    Usuario          @relation(fields: [usuarioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("MOVIMENTACAO")
+}

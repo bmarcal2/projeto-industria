@@ -1,0 +1,127 @@
+### 
+
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Bernardo Costa",
+  "email": "bernardo@industria.com",
+  "senha": "senhaSegura123",
+  "cargo": "ADMINISTRADOR"
+}
+
+###
+
+### 
+
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Carlos Silva",
+  "email": "carlos@industria.com",
+  "senha": "operadorSenha456",
+  "cargo": "OPERADOR_DE_ESTOQUE"
+}
+
+###
+
+###
+
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Diretor Invasor",
+  "email": "diretor@industria.com",
+  "senha": "senhaInvalida",
+  "cargo": "GERENTE_GERAL"
+}
+
+###
+
+###
+
+GET http://localhost:3000/api/usuarios
+
+###
+
+###
+
+POST http://localhost:3000/api/produtos
+Content-Type: application/json
+
+{
+  "nome": "Chapa de Aço Inox 2mm",
+  "descricao": "Chapas para corte e dobra industrial",
+  "quantidade": 5,
+  "preco": 320.50
+}
+
+###
+
+### 
+
+POST http://localhost:3000/api/produtos
+Content-Type: application/json
+
+{
+  "nome": "Motor Elétrico WEG 5HP",
+  "descricao": "Motores trifásicos para esteiras",
+  "quantidade": 12,
+  "preco": 1450.00
+}
+
+###
+
+###
+
+GET http://localhost:3000/api/produtos
+
+###
+
+### 
+### 
+
+POST http://localhost:3000/api/movimentacoes
+Content-Type: application/json
+
+{
+  "tipo": "ENTRADA",
+  "quantidade": 10,
+  "valor": 320.50,
+  "estoqueId": 1,
+  "usuarioId": 2
+}
+
+###
+
+### 
+### 
+### 
+
+POST http://localhost:3000/api/movimentacoes
+Content-Type: application/json
+
+{
+  "tipo": "SAIDA",
+  "quantidade": 12,
+  "valor": 320.50,
+  "estoqueId": 1,
+  "usuarioId": 2
+}
+
+###
+
+### 
+
+POST http://localhost:3000/api/movimentacoes
+Content-Type: application/json
+
+{
+  "tipo": "SAIDA",
+  "quantidade": 50,
+  "valor": 1450.00,
+  "estoqueId": 2,
+  "usuarioId": 2
+}

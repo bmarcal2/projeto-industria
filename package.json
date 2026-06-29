@@ -1,11 +1,21 @@
 {
+  "name": "projeto-industria-novo",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+  "dev": "tsx watch --env-file=.env src/index.ts"
+  },
   "dependencies": {
+    "@prisma/client": "^7.8.0",
     "dotenv": "^17.4.2",
-    "sequelize": "^6.37.8"
+    "express": "^4.19.2"
   },
   "devDependencies": {
+    "@prisma/config": "^7.8.0",
     "@types/express": "^5.0.6",
     "@types/node": "^26.0.0",
-    "sequelize-cli": "^6.6.5"
+    "prisma": "^7.8.0",
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.1"
   }
 }
